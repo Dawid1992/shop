@@ -1,0 +1,26 @@
+<div class="card-header d-flex justify-content-between">
+  <span>Kategorie</span>
+  <%= link_to new_admin_category_path,class: 'btn btn-primary btn-success ' do %>
+    <span class="fa fa-plus"> Dodaj nową kategorię</span>
+  <% end %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Nazwa</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @category.each do |category| %>
+    <tr>
+      <td> <%= category.name %> </td>
+      <td> <%= link_to "Edycja", edit_admin_category_path(category), class: "btn btn-secondary" %> </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+

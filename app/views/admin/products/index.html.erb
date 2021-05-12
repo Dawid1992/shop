@@ -1,0 +1,31 @@
+<div class="card-header d-flex justify-content-between">
+  <span>Produktyy</span>
+  <%= link_to new_admin_product_path,class: 'btn btn-primary btn-success ' do %>
+    <span class="fa fa-plus"> Dodaj nowy produkt</span>
+  <% end %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nazwa</th>
+      <th>Cena</th>
+      <th>Kategoria</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td> <%= product.name %> </td>
+        <td> <%= number_to_currency product.price %> </td>
+        <td> <%= product.category.name %> </td>
+        <td> <%= link_to "Edycja", edit_admin_product_path(product), class: "btn btn-secondary" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @products %>
+
+
